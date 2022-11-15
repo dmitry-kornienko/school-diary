@@ -1,0 +1,13 @@
+.lesson__btn {
+    padding: 2px 5px;
+    border-radius: 6px;
+    transition: all 0.2s;
+    border: none;
+}
+.lesson__btn:hover {
+    background-color: rgb(236, 201, 201)!important;
+    cursor: pointer;
+    transform: translateY(-1px);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: #fff;
+}

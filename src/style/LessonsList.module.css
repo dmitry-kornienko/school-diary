@@ -1,0 +1,7 @@
+.lessonsList {
+    margin: 30px auto;
+    padding: 10px 20px;
+    max-width: 65vw;
+    border-radius: 8px;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25), -2px -4px 4px rgba(0, 0, 0, 0.12);
+}

@@ -1,0 +1,42 @@
+.lesson {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 60vw;
+    margin: 0 auto;
+    margin-top: 5px;
+    padding: 5px 15px;
+    border: 1px solid #fff;
+    border-radius: 6px;
+}
+.lesson__subject {
+    width: 170px;
+    border-radius: 4px;
+    padding-left: 5px;
+    transition: all 0.2s;
+}
+.lesson__subject:hover {
+    cursor: pointer;
+    transform: translateY(-1px);
+    text-decoration: underline;
+}
+.lesson__teacher {
+    width: 180px;
+}
+.lesson__rating {
+    width: 40px;
+}
+.lesson__btns {
+    display: flex;
+    gap: 5px;
+}
+/* .lesson__btn {
+    padding: 2px 5px;
+    border-radius: 6px;
+    transition: all 0.3s;
+}
+.lesson__btn:hover {
+    background-color: rgb(188, 165, 165);
+    cursor: pointer;
+} */
+

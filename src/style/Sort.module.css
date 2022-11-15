@@ -1,0 +1,7 @@
+.sort {
+    display: flex;
+    justify-content: center;
+    max-width: 60vw;
+    margin: 20px auto;
+    gap: 10px;
+}
