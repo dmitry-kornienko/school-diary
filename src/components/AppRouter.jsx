@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Lessons from '../pages/Lessons';
-import LessonPage from '../pages/LessonPage';
+import { LessonPage } from '../pages/lessonsPage';
 import Error from '../pages/Error';
 
 export default function AppRouter() {

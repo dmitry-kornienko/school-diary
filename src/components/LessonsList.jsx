@@ -3,7 +3,6 @@ import LessonItem from './LessonItem';
 import classes from '../style/LessonsList.module.css';
 
 export default function LessonsList({ lessons, remove, saveEditLesson }) {
-  
   return (
     <div className={classes.lessonsList}>
         {lessons.map((lesson, index) =>
