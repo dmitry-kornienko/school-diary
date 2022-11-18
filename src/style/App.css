@@ -18,3 +18,28 @@
     text-align: center;
     margin-top: 20px;
 }
+.editLessonBlock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 0 auto;
+}
+.pageLesson {
+    margin-top: 30px;
+}
+.pageLesson__content {
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.errorPage {
+    text-align: center;
+    font-size: 40px;
+    color: red;
+    margin-top: 50px;
+}

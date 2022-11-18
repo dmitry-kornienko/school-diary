@@ -10,7 +10,7 @@ export default function Form({ create }) {
     const addNewLesson = (e) => {
         e.preventDefault();
         const newLesson = {
-            ...lesson, id: Date.now()
+            ...lesson, id: Date.now(), rating: 0
         };
         create(newLesson);
         setLesson({subject: '', teacher: ''}); 
