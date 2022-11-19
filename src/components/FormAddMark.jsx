@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import FormBtn from './FormBtn'
 import FormInput from './FormInput'
+import { useLessonPage } from './LessonPageContext'
 import Select from './Select'
 
-export default function FormAddMark({ createMark }) {
+export default function FormAddMark() {
+  const { createMark } = useLessonPage();
   const [date, setDate] = useState('');
   const [mark, setMark] = useState(5);
 

@@ -3,8 +3,10 @@ import LessonBtn from './LessonBtn';
 import classes from '../style/MarkItem.module.css';
 import FormInput from './FormInput';
 import Select from './Select';
+import { useLessonPage } from './LessonPageContext';
 
-export default function MarkItem({ mark, number, add, remove, saveEdit }) {
+export default function MarkItem({ mark, number }) {
+  const { removeMark, saveEditMark } = useLessonPage();
   const [isEditMode, setIsEditMode] = useState(false);
   const [dateValue, setDateValue] = useState(mark.date);
   const [markValue, setMarkValue] = useState(mark.markValue);
@@ -22,7 +24,7 @@ export default function MarkItem({ mark, number, add, remove, saveEdit }) {
           markValue: markValue,
       }
       setIsEditMode(false)
-      saveEdit(editedMark, mark.id);
+      saveEditMark(editedMark, mark.id);
   }
   return (
     <div className={classes.markItem}>
@@ -33,7 +35,7 @@ export default function MarkItem({ mark, number, add, remove, saveEdit }) {
           <div>{mark.markValue}</div>
           <div className={classes.markItem__btns}>
             <LessonBtn onClick={editMarkFunc} bgcolor='rgb(188, 165, 165)'>Edit</LessonBtn>
-            <LessonBtn onClick={() => remove(mark)} bgcolor='rgb(230, 80, 80)'>x</LessonBtn>
+            <LessonBtn onClick={() => removeMark(mark)} bgcolor='rgb(230, 80, 80)'>x</LessonBtn>
           </div>
         </>)
       }

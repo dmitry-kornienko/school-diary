@@ -7,7 +7,6 @@ export const useLessons = () => {
 }
 
 export const LessonsProvider = ({ children }) => {
-
     const [lessons, setLessons] = useState([
         {id: 1, subject: 'Maths', teacher: 'Selena Gomez', rating: 4.1},
         {id: 2, subject: 'English', teacher: 'Jenefer Lopez', rating: 3.7},
