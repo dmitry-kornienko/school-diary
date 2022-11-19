@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import LessonItem from './LessonItem';
 import classes from '../style/LessonsList.module.css';
-import { Context } from '../pages/Lessons';
+import { ContextLessons } from './context';
 
 export default function LessonsList() {
-  const lessons = useContext(Context);
+  const { lessons } = useContext(ContextLessons);
 
   return (
     <div className={classes.lessonsList}>

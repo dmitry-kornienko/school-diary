@@ -1,11 +1,11 @@
 import { React, useState } from "react";
+import { ContextLessons } from "../components/context";
 import Form from "../components/Form";
 import Header from "../components/Header";
 import LessonsList from "../components/LessonsList";
 import Sort from "../components/Sort";
 import '../style/App.css';
 
-export const Context = React.createContext();
 
 function Lessons() {
     const [lessons, setLessons] = useState([
@@ -39,21 +39,21 @@ function Lessons() {
         }
 
     return (
-        <Context.Provider value={{lessons, setLessons, removeLesson, saveEditLesson}}>
-            <div className="App">
+        <div className="App">
                 <Header text='School Diary' />
                 <Form create={createLesson} />
-                <Sort sortLessonsBySubject={sortLessonsBySubject} sortLessonsByTeacher={sortLessonsByTeacher} disableSort={disableSort} lessons={lessons} />
+                <Sort sortLessonsBySubject={sortLessonsBySubject} sortLessonsByTeacher={sortLessonsByTeacher} disableSort={disableSort} />
                 {lessons.length
                     ?
-                    <LessonsList />
+                    <ContextLessons.Provider value={{lessons, setLessons, removeLesson, saveEditLesson }}>
+                        <LessonsList />
+                    </ContextLessons.Provider>
                     :
                     <h2 className="header-noSubjects">
                         No Subjects
                     </h2>
                 }
             </div>
-        </Context.Provider>
     );
 }
 

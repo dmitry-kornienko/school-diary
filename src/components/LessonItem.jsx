@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Context } from '../pages/Lessons';
 import classes from '../style/LessonItem.module.css';
+import { ContextLessons } from './context';
 import FormInput from './FormInput';
 import LessonBtn from './LessonBtn';
 
@@ -10,8 +10,7 @@ export default function LessonItem({ number, lesson }) {
     const [subjectValue, setSubjectValue] = useState(lesson.subject);
     const [teacherValue, setTeacherValue] = useState(lesson.teacher);
 
-    const { removeLesson, saveEditLesson } = useContext(Context);
-    // const saveEditLesson = useContext(Context);
+    const { removeLesson, saveEditLesson } = useContext(ContextLessons);
 
     const editLessonFunc = () => {
         if (!isEditMode) {
