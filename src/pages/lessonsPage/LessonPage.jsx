@@ -9,9 +9,9 @@ import BackArrow from '../../components/BackArrow';
 
 export function LessonPage() {
   const [marks, setMarks] = useState([
-    {id: 1, date: '2022-03-18', value: 4},
-    {id: 2, date: '2022-03-19', value: 5},
-    {id: 3, date: '2022-03-20', value: 3},
+    {id: 1, date: '2022-03-18', markValue: 4},
+    {id: 2, date: '2022-03-19', markValue: 5},
+    {id: 3, date: '2022-03-20', markValue: 3},
   ]);
 
   const createMark = (newMark) => {

@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { React, useState } from "react";
 import Form from "../components/Form";
 import Header from "../components/Header";
 import LessonsList from "../components/LessonsList";
 import Sort from "../components/Sort";
 import '../style/App.css';
 
-function Lessons() {
+export const Context = React.createContext();
 
+function Lessons() {
     const [lessons, setLessons] = useState([
         {id: 1, subject: 'Maths', teacher: 'Selena Gomez', rating: 4.1},
         {id: 2, subject: 'English', teacher: 'Jenefer Lopez', rating: 3.7},
@@ -38,19 +39,21 @@ function Lessons() {
         }
 
     return (
-        <div className="App">
-            <Header text='School Diary' />
-            <Form create={createLesson} />
-            <Sort sortLessonsBySubject={sortLessonsBySubject} sortLessonsByTeacher={sortLessonsByTeacher} disableSort={disableSort} lessons={lessons} />
-            {lessons.length
-                ?
-                <LessonsList remove={removeLesson} lessons={lessons} saveEditLesson={saveEditLesson} />
-                :
-                <h2 className="header-noSubjects">
-                    No Subjects
-                </h2>
-            }
-        </div>
+        <Context.Provider value={{lessons, setLessons, removeLesson, saveEditLesson}}>
+            <div className="App">
+                <Header text='School Diary' />
+                <Form create={createLesson} />
+                <Sort sortLessonsBySubject={sortLessonsBySubject} sortLessonsByTeacher={sortLessonsByTeacher} disableSort={disableSort} lessons={lessons} />
+                {lessons.length
+                    ?
+                    <LessonsList />
+                    :
+                    <h2 className="header-noSubjects">
+                        No Subjects
+                    </h2>
+                }
+            </div>
+        </Context.Provider>
     );
 }
 

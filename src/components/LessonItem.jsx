@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Context } from '../pages/Lessons';
 import classes from '../style/LessonItem.module.css';
 import FormInput from './FormInput';
 import LessonBtn from './LessonBtn';
 
-export default function LessonItem({ number, lesson, remove, saveEditLesson }) {
+export default function LessonItem({ number, lesson }) {
     const [isEditMode, setIsEditMode] = useState(false);
     const [subjectValue, setSubjectValue] = useState(lesson.subject);
     const [teacherValue, setTeacherValue] = useState(lesson.teacher);
 
+    const { removeLesson, saveEditLesson } = useContext(Context);
+    // const saveEditLesson = useContext(Context);
 
     const editLessonFunc = () => {
         if (!isEditMode) {
@@ -38,7 +41,7 @@ export default function LessonItem({ number, lesson, remove, saveEditLesson }) {
                     <div className={classes.lesson__rating}>{lesson.rating}</div>
                     <div className={classes.lesson__btns}>
                         <LessonBtn onClick={editLessonFunc} bgcolor='rgb(188, 165, 165)'>Edit</LessonBtn>
-                        <LessonBtn onClick={() => remove(lesson)} bgcolor='rgb(230, 80, 80)'>x</LessonBtn>
+                        <LessonBtn onClick={() => removeLesson(lesson)} bgcolor='rgb(230, 80, 80)'>x</LessonBtn>
                     </div>
                 </>)
             }
