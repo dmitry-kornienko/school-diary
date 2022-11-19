@@ -1,8 +1,13 @@
 import FormBtn from './FormBtn';
 import classes from '../style/Sort.module.css';
+import { useContext } from 'react';
+import { LessonsProvider } from './LessonsContext';
 
 
-export default function Sort({ sortLessonsBySubject, sortLessonsByTeacher, disableSort  }) {
+export default function Sort() {
+  const sortLessonsBySubject = useContext(LessonsProvider);
+  const sortLessonsByTeacher = useContext(LessonsProvider);
+  const disableSort = useContext(LessonsProvider);
   return (
     <div className={classes.sort}>
         <FormBtn onClick={sortLessonsBySubject}>Sort by subject</FormBtn>

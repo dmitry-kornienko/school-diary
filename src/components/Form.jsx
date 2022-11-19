@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import FormInput from './FormInput';
 import FormBtn from './FormBtn';
 import classes from '../style/Form.module.css';
+import { useLessons } from './LessonsContext';
 
-export default function Form({ create }) {
+export default function Form() {
+    const { createLesson } = useLessons();
 
     const [lesson, setLesson] = useState({ subject: '', teacher: '' })
 
@@ -12,7 +14,7 @@ export default function Form({ create }) {
         const newLesson = {
             ...lesson, id: Date.now(), rating: 0
         };
-        create(newLesson);
+        createLesson(newLesson);
         setLesson({subject: '', teacher: ''}); 
     }
 
