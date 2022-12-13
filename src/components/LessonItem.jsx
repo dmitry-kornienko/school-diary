@@ -11,6 +11,7 @@ export default function LessonItem({ number, lesson }) {
     const [teacherValue, setTeacherValue] = useState(lesson.teacher);
 
     const { removeLesson, saveEditLesson } = useLessons();
+   
 
     const editLessonFunc = () => {
         if (!isEditMode) {
@@ -18,15 +19,17 @@ export default function LessonItem({ number, lesson }) {
         }
     }
     const handleSave = () => {
-        const editedLesson = {
-            id: lesson.id,
-            subject: subjectValue,
-            teacher: teacherValue,
-            rating: 4,
+        if (subjectValue && teacherValue) {
+            const editedLesson = {
+                id: lesson.id,
+                subject: subjectValue,
+                teacher: teacherValue,
+                rating: lesson.rating,
+                marks: lesson.marks,
+            }
+            setIsEditMode(false)
+            saveEditLesson(editedLesson, lesson.id);
         }
-        setIsEditMode(false)
-
-        saveEditLesson(editedLesson, lesson.id);
     }
     
     return (

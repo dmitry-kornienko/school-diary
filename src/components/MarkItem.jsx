@@ -3,13 +3,21 @@ import LessonBtn from './LessonBtn';
 import classes from '../style/MarkItem.module.css';
 import FormInput from './FormInput';
 import Select from './Select';
-import { useLessonPage } from './LessonPageContext';
+import { useLessons } from './LessonsContext';
+import { useParams } from 'react-router-dom';
+
 
 export default function MarkItem({ mark, number }) {
-  const { removeMark, saveEditMark } = useLessonPage();
+  const { removeMark, saveEditMark, lessons } = useLessons();
   const [isEditMode, setIsEditMode] = useState(false);
   const [dateValue, setDateValue] = useState(mark.date);
   const [markValue, setMarkValue] = useState(mark.markValue);
+
+
+  const params = useParams();
+
+  const lessonIndex = lessons.findIndex(lesson => lesson.subject === params.subject)
+
 
   const editMarkFunc = () => {
       if (!isEditMode) {
@@ -24,7 +32,7 @@ export default function MarkItem({ mark, number }) {
           markValue: markValue,
       }
       setIsEditMode(false)
-      saveEditMark(editedMark, mark.id);
+      saveEditMark(editedMark, lessonIndex);
   }
   return (
     <div className={classes.markItem}>
@@ -35,7 +43,7 @@ export default function MarkItem({ mark, number }) {
           <div>{mark.markValue}</div>
           <div className={classes.markItem__btns}>
             <LessonBtn onClick={editMarkFunc} bgcolor='rgb(188, 165, 165)'>Edit</LessonBtn>
-            <LessonBtn onClick={() => removeMark(mark)} bgcolor='rgb(230, 80, 80)'>x</LessonBtn>
+            <LessonBtn onClick={() => removeMark(mark, lessonIndex)}  bgcolor='rgb(230, 80, 80)'>x</LessonBtn>
           </div>
         </>)
       }

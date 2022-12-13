@@ -1,24 +1,31 @@
 import React, { useState } from 'react'
+import { useParams } from 'react-router-dom'
 import FormBtn from './FormBtn'
 import FormInput from './FormInput'
-import { useLessonPage } from './LessonPageContext'
+import { useLessons } from './LessonsContext'
 import Select from './Select'
 
 export default function FormAddMark() {
-  const { createMark } = useLessonPage();
+  const { lessons, createMark } = useLessons();
   const [date, setDate] = useState('');
   const [mark, setMark] = useState(5);
 
+  const params = useParams();
+
   const addNewMark = (e) => {
+
+    const indexCurrentLesson = lessons.findIndex(lesson => lesson.subject === params.subject);
+
     const newMark = {
       date,
-      markValue: mark,
+      markValue: Number(mark),
       id: Date.now(),
     };
-    createMark(newMark);
+    createMark(newMark, indexCurrentLesson);
     setMark(5); 
     setDate('');
-}
+  }
+  
   return (
     <div className='pageLesson__content'>
         <FormInput

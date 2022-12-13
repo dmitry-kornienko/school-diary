@@ -11,11 +11,16 @@ export default function Form() {
 
     const addNewLesson = (e) => {
         e.preventDefault();
-        const newLesson = {
-            ...lesson, id: Date.now(), rating: 0
-        };
-        createLesson(newLesson);
-        setLesson({subject: '', teacher: ''}); 
+        if (lesson.subject && lesson.teacher) {
+            const newLesson = {
+                ...lesson,
+                id: Date.now(),
+                marks: [],
+                rating: 0,
+            };
+            createLesson(newLesson);
+            setLesson({subject: '', teacher: ''}); 
+        }
     }
 
     return (

@@ -10,7 +10,7 @@ function Lessons() {
 
     return (
         <div className="App">
-                <Header text='School Diary' />
+                <Header>School Diary</Header>
                 <Form />
                 <Sort />
                 {lessons.length
