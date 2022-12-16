@@ -6,9 +6,7 @@ import { useLessons } from './LessonsContext';
 
 export default function Form() {
     const { createLesson } = useLessons();
-
-    const [lesson, setLesson] = useState({ subject: '', teacher: '' })
-
+    const [lesson, setLesson] = useState({ subject: '', teacher: '' });
     const addNewLesson = (e) => {
         e.preventDefault();
         if (lesson.subject && lesson.teacher) {

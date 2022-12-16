@@ -9,12 +9,8 @@ import { useLessons } from '../../components/LessonsContext';
 export function LessonPage() {
   const { lessons } = useLessons();
   const params = useParams();
-
-
-  const currentLesson = lessons.find(lesson => lesson.subject === params.subject)
-
+  const currentLesson = lessons.find(lesson => lesson.subject === params.subject);
   const lessonMarks = currentLesson.marks;
-
 
   return (
     <div className='App pageLesson'>
@@ -24,13 +20,13 @@ export function LessonPage() {
         <MarksHeader />
         <FormAddMark />
         {currentLesson.marks.length
-                ?
-                <MarksList marks={lessonMarks} />
-                :
-                <h2 className="header-noSubjects">
-                  No Marks
-                </h2>
-            }
+        	?
+        	<MarksList marks={lessonMarks} />
+        	:
+        	<h2 className="header-noSubjects">
+        	No Marks
+        	</h2>
+        }
     </div>
   )
 }

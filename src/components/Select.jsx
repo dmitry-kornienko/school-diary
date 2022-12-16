@@ -3,7 +3,7 @@ import classes from '../style/Select.module.css';
 
 export default function Select({ value, set }) {
   const handleChangeValue = (event) => {
-    set(event.target.value)
+    set(event.target.value);
   }
   return (
     <select value={value} onChange={handleChangeValue} className={classes.select}>

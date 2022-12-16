@@ -7,8 +7,8 @@ export default function LessonsList() {
 
   return (
     <div className={classes.lessonsList}>
-        {lessons.map((lesson, index) =>
-            <LessonItem number={index + 1} lesson={lesson} key={lesson.id} />)}
+      {lessons.map((lesson, index) =>
+        <LessonItem number={index + 1} lesson={lesson} key={lesson.id} />)}
     </div>
   )
 }

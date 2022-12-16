@@ -8,13 +8,13 @@ import { LessonsProvider } from './LessonsContext';
 export default function AppRouter() {
   return (
     <BrowserRouter>
-          <LessonsProvider>
-              <Routes>
-                <Route path="/" element={<Lessons />} />
-                <Route path="/lessons/:subject" element={<LessonPage />} />
-                <Route path="*" element={<Error />} />
-              </Routes>
-          </LessonsProvider>
-        </BrowserRouter>
+      <LessonsProvider>
+        <Routes>
+          <Route path="/" element={<Lessons />} />
+          <Route path="/lessons/:subject" element={<LessonPage />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </LessonsProvider>
+    </BrowserRouter>
   )
 }

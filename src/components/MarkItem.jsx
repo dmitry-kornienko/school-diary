@@ -6,33 +6,27 @@ import Select from './Select';
 import { useLessons } from './LessonsContext';
 import { useParams } from 'react-router-dom';
 
-
 export default function MarkItem({ mark, number }) {
   const { removeMark, saveEditMark, lessons } = useLessons();
   const [isEditMode, setIsEditMode] = useState(false);
   const [dateValue, setDateValue] = useState(mark.date);
   const [markValue, setMarkValue] = useState(mark.markValue);
-
-
   const params = useParams();
-
-  const lessonIndex = lessons.findIndex(lesson => lesson.subject === params.subject)
-
+  const lessonIndex = lessons.findIndex(lesson => lesson.subject === params.subject);
 
   const editMarkFunc = () => {
-      if (!isEditMode) {
-          setIsEditMode(true)
-      }
+    if (!isEditMode) {
+      setIsEditMode(true);
+    }
   }
-
   const handleSave = () => {
-      const editedMark = {
-          id: mark.id,
-          date: dateValue,
-          markValue: markValue,
-      }
-      setIsEditMode(false)
-      saveEditMark(editedMark, lessonIndex);
+    const editedMark = {
+      id: mark.id,
+      date: dateValue,
+      markValue: markValue,
+    }
+    setIsEditMode(false);
+    saveEditMark(editedMark, lessonIndex);
   }
   return (
     <div className={classes.markItem}>

@@ -10,17 +10,17 @@ function Lessons() {
 
     return (
         <div className="App">
-                <Header>School Diary</Header>
-                <Form />
-                <Sort />
-                {lessons.length
-                    ?
-                    <LessonsList />
-                    :
-                    <h2 className="header-noSubjects">
-                        No Subjects
-                    </h2>
-                }
+            <Header>School Diary</Header>
+            <Form />
+            <Sort />
+            {lessons.length
+                ?
+                <LessonsList />
+                :
+                <h2 className="header-noSubjects">
+                    No Subjects
+                </h2>
+            }
         </div>
     );
 }

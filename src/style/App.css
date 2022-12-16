@@ -8,12 +8,10 @@
     color: rgb(70, 61, 61);
     line-height: 1;
 }
-
 .App {
     max-width: 80vw;
     margin: 0 auto;
 }
-
 .header-noSubjects {
     text-align: center;
     margin-top: 20px;
