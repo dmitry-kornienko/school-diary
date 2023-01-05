@@ -8,13 +8,41 @@
     color: rgb(70, 61, 61);
     line-height: 1;
 }
-
 .App {
     max-width: 80vw;
     margin: 0 auto;
 }
-
 .header-noSubjects {
     text-align: center;
     margin-top: 20px;
+    margin: 30px auto;
+    padding: 10px 20px;
+    max-width: 65vw;
+    border-radius: 8px;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25), -2px -4px 4px rgba(0, 0, 0, 0.12);
+}
+.editLessonBlock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 0 auto;
+}
+.pageLesson {
+    margin-top: 30px;
+}
+.pageLesson__content {
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.errorPage {
+    text-align: center;
+    font-size: 40px;
+    color: red;
+    margin-top: 50px;
 }

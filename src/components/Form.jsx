@@ -2,18 +2,23 @@ import React, { useState } from 'react';
 import FormInput from './FormInput';
 import FormBtn from './FormBtn';
 import classes from '../style/Form.module.css';
+import { useLessons } from './LessonsContext';
 
-export default function Form({ create }) {
-
-    const [lesson, setLesson] = useState({ subject: '', teacher: '' })
-
+export default function Form() {
+    const { createLesson } = useLessons();
+    const [lesson, setLesson] = useState({ subject: '', teacher: '' });
     const addNewLesson = (e) => {
         e.preventDefault();
-        const newLesson = {
-            ...lesson, id: Date.now()
-        };
-        create(newLesson);
-        setLesson({subject: '', teacher: ''}); 
+        if (lesson.subject && lesson.teacher) {
+            const newLesson = {
+                ...lesson,
+                id: Date.now(),
+                marks: [],
+                rating: 0,
+            };
+            createLesson(newLesson);
+            setLesson({subject: '', teacher: ''}); 
+        }
     }
 
     return (
