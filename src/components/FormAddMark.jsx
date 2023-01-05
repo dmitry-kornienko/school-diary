@@ -12,14 +12,16 @@ export default function FormAddMark() {
   const params = useParams();
   const addNewMark = (e) => {
     const indexCurrentLesson = lessons.findIndex(lesson => lesson.subject === params.subject);
-    const newMark = {
-      date,
-      markValue: Number(mark),
-      id: Date.now(),
-    };
-    createMark(newMark, indexCurrentLesson);
-    setMark(5); 
-    setDate('');
+    if (date) {
+      const newMark = {
+        date,
+        markValue: Number(mark),
+        id: Date.now(),
+      };
+      createMark(newMark, indexCurrentLesson);
+      setMark(5); 
+      setDate('');
+    }
   }
   
   return (
